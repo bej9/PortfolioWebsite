@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/PortfolioWebsite/static/css/main.8ad54e2f.chunk.css",
-    "main.js": "/PortfolioWebsite/static/js/main.cb500ebc.chunk.js",
-    "main.js.map": "/PortfolioWebsite/static/js/main.cb500ebc.chunk.js.map",
+    "main.css": "/PortfolioWebsite/static/css/main.a66e5a64.chunk.css",
+    "main.js": "/PortfolioWebsite/static/js/main.00ef6f25.chunk.js",
+    "main.js.map": "/PortfolioWebsite/static/js/main.00ef6f25.chunk.js.map",
     "runtime-main.js": "/PortfolioWebsite/static/js/runtime-main.906d1dcc.js",
     "runtime-main.js.map": "/PortfolioWebsite/static/js/runtime-main.906d1dcc.js.map",
     "static/js/2.bd8e1c77.chunk.js": "/PortfolioWebsite/static/js/2.bd8e1c77.chunk.js",
     "static/js/2.bd8e1c77.chunk.js.map": "/PortfolioWebsite/static/js/2.bd8e1c77.chunk.js.map",
     "index.html": "/PortfolioWebsite/index.html",
-    "static/css/main.8ad54e2f.chunk.css.map": "/PortfolioWebsite/static/css/main.8ad54e2f.chunk.css.map",
+    "static/css/main.a66e5a64.chunk.css.map": "/PortfolioWebsite/static/css/main.a66e5a64.chunk.css.map",
     "static/js/2.bd8e1c77.chunk.js.LICENSE.txt": "/PortfolioWebsite/static/js/2.bd8e1c77.chunk.js.LICENSE.txt",
     "static/media/Benjamin_Jordan_Resume_2025.cf2cb342.pdf": "/PortfolioWebsite/static/media/Benjamin_Jordan_Resume_2025.cf2cb342.pdf",
     "static/media/EQ2.4f946a9f.PNG": "/PortfolioWebsite/static/media/EQ2.4f946a9f.PNG",
@@ -29,6 +29,7 @@
     "static/media/SAE1.ee662d30.PNG": "/PortfolioWebsite/static/media/SAE1.ee662d30.PNG",
     "static/media/SAE2.2881e408.PNG": "/PortfolioWebsite/static/media/SAE2.2881e408.PNG",
     "static/media/SAE4.5677207e.PNG": "/PortfolioWebsite/static/media/SAE4.5677207e.PNG",
+    "static/media/Screenshot from 2026-02-01 11-47-10.1212c2be.png": "/PortfolioWebsite/static/media/Screenshot from 2026-02-01 11-47-10.1212c2be.png",
     "static/media/SynthLM3.828823aa.PNG": "/PortfolioWebsite/static/media/SynthLM3.828823aa.PNG",
     "static/media/SynthLM4.a3f325ba.PNG": "/PortfolioWebsite/static/media/SynthLM4.a3f325ba.PNG",
     "static/media/audiocraft1.7119c8f1.png": "/PortfolioWebsite/static/media/audiocraft1.7119c8f1.png",
@@ -48,7 +49,7 @@
   "entrypoints": [
     "static/js/runtime-main.906d1dcc.js",
     "static/js/2.bd8e1c77.chunk.js",
-    "static/css/main.8ad54e2f.chunk.css",
-    "static/js/main.cb500ebc.chunk.js"
+    "static/css/main.a66e5a64.chunk.css",
+    "static/js/main.00ef6f25.chunk.js"
   ]
 }
