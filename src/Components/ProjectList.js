@@ -42,8 +42,8 @@ const portfolios = [
         category: ['2023'],
         link: 'https://entropyaudio.io/',
         icon: faChrome,
-        descriptions: [descriptions.synthlm1, descriptions.synthlm2, descriptions.synthlm3, descriptions.synthlm4
-        , descriptions.synthlm5, descriptions.synthlm6, descriptions.synthlm7],
+        descriptions: [descriptions.entropy1, descriptions.entropy2, descriptions.entropy3, descriptions.entropy4
+        , descriptions.entropy5, descriptions.entropy6, descriptions.entropy7],
         title: 'Generative, Transformer-Based Models For Music Composition',
         images: [audiocraft1, dit, ea, pc],
         imagecap: ["1. MusicGen + Encodec Architecture", "2. Diffusion Transformer (DiT) Paper", "3. Generation Flow System Design", "4. My Local Machine"],

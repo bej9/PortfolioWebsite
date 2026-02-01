@@ -32,7 +32,7 @@ function MenuItem({menuItem, id, setId}) {
                             </div>
                         </h5>
 
-                        <div style={{maxHeight: `${expanded && (id === -1 || item.id === id) ? "400vh" : "24vh"}`}} className={`project-content`}>
+                        <div className={`project-content`}>
                             <div className={`${expanded && (id === -1 || item.id === id)? 'text-cover-plain' : 'text-cover'}`}></div>
                             {/*<button className="expand-btn" onClick={() => {*/}
                             {/*    if(!expanded)*/}
