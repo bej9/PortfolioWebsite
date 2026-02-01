@@ -94,4 +94,13 @@ span
   color: var(--main-color);
 }
 
+a
+{
+  color: var(--main-color);
+  &:visited
+  {
+    color: var(--main-color);
+  }
+}
+
 

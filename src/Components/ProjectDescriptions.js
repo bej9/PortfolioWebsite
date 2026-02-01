@@ -23,12 +23,12 @@ const descriptions =
             "The dataset design was inspired by the dataset classes in <a href='https://github.com/facebookresearch/audiocraft' target='_blank' rel='noopener noreferrer'>Meta's AudioCraft codebase</a>. " +
             "The rest of the data is from open source or manually labeled. <br><br>" +
             "I used <a href='https://huggingface.co/docs/transformers/model_doc/clap' target='_blank' rel='noopener noreferrer'>CLAP score</a> to filter out low quality synthetic examples. " +
-            "To balance the dataset (way too much drum samples) I used a weighted sampler and downweighted common tags using an inverse frequency weighting:" +
+            "To balance the dataset (way too many drum samples!) I used a weighted sampler and downweighted common tags using an inverse frequency weighting:" +
             "<code> w = 1 / (1 + count / threshold) ^ power</code>. " +
-            "Finally, I pre-encoded the audio latents before trianing to improve efficiency.",
+            "Finally, I pre-encoded the audio latents before training to improve efficiency.",
 
         entropy5: "On the engineering side, I created 4 core code packages: entropy_training, entropy_models, entropy_metrics, and entropy_data. " +
-            "The model code was initialized from <a href='https://github.com/Stability-AI/stable-audio-tools' target='_blank' rel='noopener noreferrer'>Stable Audio Tools</a> repo " +
+            "The model code was initialized from the <a href='https://github.com/Stability-AI/stable-audio-tools' target='_blank' rel='noopener noreferrer'>Stable Audio Tools</a> repo " +
             "and contains code for the DiT, autoencoder, and conditioning modules. For text embeddings, I swapped out the original T5 used with SAO for " +
             "Qwen3 Embedding, CLIP, and CLAP for diverse text features. Entropy data holds the dataset classes as well as " +
             "scripts for synthetic data curation, data processing, and visualizing the dataset. The training package contains trainer classes for SFT, RL (GRPO), and Preference Alignment (DPO) as well as configs and orchestrator code for training. " +

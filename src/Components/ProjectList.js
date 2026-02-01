@@ -44,7 +44,7 @@ const portfolios = [
         link: 'https://entropyaudio.io/',
         icon: faChrome,
         descriptions: [descriptions.entropy1, descriptions.entropy2, descriptions.entropy3, descriptions.entropy4
-        , descriptions.entropy5, descriptions.entropy6, descriptions.entropy7],
+        , descriptions.entropy5, descriptions.entropy6],
         title: 'Generative, Transformer-Based Models For Sound Design',
         images: [audiocraft1, dit, ea, ddpo, pc],
         imagecap: ["1. MusicGen + Encodec Architecture", "2. Scalable Diffusion Models with Transformers (Peebles et al., 2023)", "3. Generation Flow System Design", "4. Training Diffusion Models with Reinforcement Learning (Black et al., 2024)", "5. My Local Workstation"],
