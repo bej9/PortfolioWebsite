@@ -27,11 +27,11 @@ const descriptions =
             "<code> w = 1 / (1 + count / threshold) ^ power</code>. " +
             "Finally, I pre-encoded the audio latents before training to improve efficiency.",
 
-        entropy5: "On the engineering side, I created 4 core code packages: entropy_training, entropy_models, entropy_metrics, and entropy_data. " +
+        entropy5: "I created 4 core code packages for training, models, metrics, and data. " +
             "The model code was initialized from the <a href='https://github.com/Stability-AI/stable-audio-tools' target='_blank' rel='noopener noreferrer'>Stable Audio Tools</a> [5] repo " +
             "and contains code for the DiT, autoencoder, and conditioning modules. For text embeddings, I swapped out the original T5 used with SAO for " +
-            "Qwen3 Embedding, CLIP, and CLAP for diverse text features. Entropy data holds the dataset classes as well as " +
-            "scripts for synthetic data curation, data processing, and visualizing the dataset. The training package contains trainer classes for SFT, RL (GRPO) [10], and Preference Alignment (DPO) [11] as well as configs and orchestrator code for training. " +
+            "Qwen3 Embedding, CLIP, and CLAP for diverse text features. The data package holds the dataset classes as well as " +
+            "scripts for synthetic data curation, data processing, and visualizing the dataset. The training code contains trainer classes for SFT, RL (GRPO) [10], and Preference Alignment (DPO) [11] as well as configs and orchestrator code for training. " +
             "Finally, the metrics package contains metrics used for evaluation and helpers for training monitoring (Weights & Biases). Some interesting metrics I have been using are the scores from <a href='https://ai.meta.com/research/publications/meta-audiobox-aesthetics-unified-automatic-quality-assessment-for-speech-music-and-sound/' target='_blank' rel='noopener noreferrer'>Meta's Audiobox Aesthetics</a> [6]. " +
             "This is a pretrained model that predicts scores for an audio's content enjoyment, content quality, production complexity, and production quality. " +
             "I use these scores as evals during training and also use them as reward signals for RL. ",
