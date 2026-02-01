@@ -1,36 +1,30 @@
 const descriptions =
     {
-        entropy1: "Given the impressive modeling capabilities of modern diffusion and flow models in the speech and music domains, " +
-            "it seems clear to me that there will be some form of natural language tool available for music composers in the future. " +
-            "Unfortunately, audio generation models aren't great for music composition in their current state. " +
-            "Some of these models may be able to generate full songs, but none are able to generate individual, high-quality samples well. " +
-            "To me this highlights both a large data bottleneck as well as a lack of focus on this specific task by the community.",
+            entropy1: "Given the impressive modeling capabilities of modern diffusion models in the speech and music domains, " +
+                "it is clear that there will be some form of natural language tool available for composers in the future. " +
+                "Unfortunately, current audio generation models are focused mainly on speech and music generation - not individual, high-quality instrument samples. " +
+                "This highlights that there is a large data bottleneck as well as a lack of focus on this specific task.",
 
-        entropy2: "The open source model that first piqued my interest was <a href='https://musicgen.com/' target='_blank' rel='noopener noreferrer'>MusicGen from Meta AI</a> in summer 2023. This is an " +
-            "autoregressive transformer model that predicts time-steps in a compressed, discretized audio sequence conditioned on text. " +
-            "Although these models were a huge step up in open source at the time and implemented a cool approach to audio modeling, " +
-            "the limitations of autoregressive models became apparent when playing around with the model (consistency issues and slow generative speeds for long sequences). " +
-            "Autoregressive models aren't inherently bad, but they may not be the best fit for audio generation. " +
-            "Some other issues like artifact-free latent audio encoding and decoding were not completely solved at the time as well, lowering the quality of the model further. " +
-            "<a href='https://github.com/facebookresearch/encodec' target='_blank' rel='noopener noreferrer'>Encodec</a> (an audio autoencoder made by Meta) is solid, but not quite at the level needed for professional audio.",
+        entropy2: "The open source model that first piqued my interest was <a href='https://musicgen.com/' target='_blank' rel='noopener noreferrer'>MusicGen from Meta AI</a> in June 2023. This model is an " +
+            "autoregressive transformer that predicts time-steps in a compressed, discretized audio sequence. " +
+            "Although these models were a huge step up in open source at the time, " +
+            "the limitations of autoregressive models became apparent when playing around with the model (long-range consistency issues and slow generative speeds for long sequences). " +
+            "Additionally, the autoencoder (<a href='https://github.com/facebookresearch/encodec' target='_blank' rel='noopener noreferrer'>Encodec</a>) that was used is good, but not quite at the level needed for professional audio.",
 
-        entropy3: "By the end of the year (Dec 2023), I began experimenting and finetuning MusicGen. " +
-            "Through some testing I found that the autoencoder called <a href='https://github.com/descriptinc/descript-audio-codec' target='_blank' rel='noopener noreferrer'>Descript Audio Codec (DAC)</a> " +
-            "had superior audio quality, so I swapped out Encodec with DAC for these experiments. " +
-            "Unfortunately, experienced issues with model efficiency (MusicGen has 7B parameters), dataset breadth and quality, and sequence consistency. " +
-            "In June 2024, StabilityAI released <a href='https://huggingface.co/stabilityai/stable-audio-open-1.0' target='_blank' rel='noopener noreferrer'>Stable Audio Open (SAO)</a>. " +
-            "SAO is a 1B diffusion model that operates on a continuous latent space provided by a great encoder model called <a href='https://github.com/Harmonai-org/oobleck' target='_blank' rel='noopener noreferrer'>Oobleck</a>. " +
-            "SAO is superior to MusicGen in consistency, quality, simplicity, and efficiency. In my opinion, diffusion/flow models are the clear winner for audio generation.",
+        entropy3: "In June 2024, StabilityAI released <a href='https://huggingface.co/stabilityai/stable-audio-open-1.0' target='_blank' rel='noopener noreferrer'>Stable Audio Open (SAO)</a>. " +
+            "SAO is a 1B diffusion model that operates on a continuous latent space provided by an audio encoder model called <a href='https://github.com/Harmonai-org/oobleck' target='_blank' rel='noopener noreferrer'>Oobleck</a>. " +
+            "SAO is superior to MusicGen in consistency, quality, simplicity, and efficiency.",
 
-        entropy4: "Unfortunately, the data bottleneck still remains. " +
+        entropy4: "Architectures are somewhat of a solved problem at this point, but the data bottleneck still remains. " +
             "To fix this, I have been working on a dataset currently sitting at around 2TB. " +
-            "The largest portion of this data came from a program I made to automate the data gathering and labeling process. I used LLMs " +
-            "(Gemini 2.5 Flash (API) and Qwen3-30B (Local)) to generate captions given text metadata of an audio sample. " +
-            "Each datapoint in the dataset has metadata and conditioning fields prepared in a predefined schema and saved as a json file. " +
-            "This dataset design was inspired by the dataset classes in <a href='https://github.com/facebookresearch/audiocraft' target='_blank' rel='noopener noreferrer'>Meta's AudioCraft codebase</a>. " +
-            "The rest of the data is either open source or manually labeled. I am also hoping to create an audio classifier as well as a multimodal LLM trained to do labelling from raw audio as well. " +
-            "This is pending completion of the initial dataset to ensure I have lots of training data to play around with. " +
-            "Lastly, I use <a href='https://huggingface.co/docs/transformers/model_doc/clap' target='_blank' rel='noopener noreferrer'>CLAP score</a> to filter all open source and synthetic data to ensure that data is high quality. ",
+            "The largest portion of this data came from software I made to automate the data gathering and labeling process. " +
+            "I used both proprietary LLM APIs as well as local LLMs to generate captions given the filenames and attribute tags of an audio sample. " +
+            "Each wav file in the dataset is paired with a json file containing conditioning fields prepared in a predefined schema. " +
+            "The dataset design was inspired by the dataset classes in <a href='https://github.com/facebookresearch/audiocraft' target='_blank' rel='noopener noreferrer'>Meta's AudioCraft codebase</a>. " +
+            "The rest of the data is from open source or manually labeled. <br><br>" +
+            "I used <a href='https://huggingface.co/docs/transformers/model_doc/clap' target='_blank' rel='noopener noreferrer'>CLAP score</a> to filter out low quality synthetic examples. " +
+            "To balance the dataset (way too much drum samples) I used a weighted sampler and downweighted common tags using an inverse frequency weighting:" +
+            "<code> w = 1 / (1 + count / threshold) ^ power</code>.",
 
         entropy5: "On the engineering side, I created 4 core code packages: entropy_training, entropy_models, entropy_metrics, and entropy_data. " +
             "The model package was initialized from the code in the <a href='https://github.com/Stability-AI/stable-audio-tools' target='_blank' rel='noopener noreferrer'>Stable Audio Tools</a> repo " +
