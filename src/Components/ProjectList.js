@@ -29,6 +29,7 @@ import audiocraft2 from "../Images/frontend.PNG"
 import dit from "../Images/dit.png"
 import pc from "../Images/IMG_8809.JPEG"
 import ea from "../Images/EntropyAudio (2).png"
+import ddpo from "../Images/Screenshot from 2026-02-01 11-47-10.png"
 
 import descriptions from "./ProjectDescriptions"
 
@@ -45,8 +46,8 @@ const portfolios = [
         descriptions: [descriptions.entropy1, descriptions.entropy2, descriptions.entropy3, descriptions.entropy4
         , descriptions.entropy5, descriptions.entropy6, descriptions.entropy7],
         title: 'Generative, Transformer-Based Models For Sound Design',
-        images: [audiocraft1, dit, ea, pc],
-        imagecap: ["1. MusicGen + Encodec Architecture", "2. Diffusion Transformer (DiT) Paper", "3. Generation Flow System Design", "4. My Local Machine"],
+        images: [audiocraft1, dit, ea, ddpo, pc],
+        imagecap: ["1. MusicGen + Encodec Architecture", "2. Scalable Diffusion Models with Transformers (Peebles et al., 2023)", "3. Generation Flow System Design", "4. Training Diffusion Models with Reinforcement Learning (Black et al., 2024)", "5. My Local Workstation"],
         citations: [
             "https://musicgen.com/",
             "https://github.com/facebookresearch/audiocraft",

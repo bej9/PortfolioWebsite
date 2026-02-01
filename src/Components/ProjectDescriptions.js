@@ -24,38 +24,25 @@ const descriptions =
             "The rest of the data is from open source or manually labeled. <br><br>" +
             "I used <a href='https://huggingface.co/docs/transformers/model_doc/clap' target='_blank' rel='noopener noreferrer'>CLAP score</a> to filter out low quality synthetic examples. " +
             "To balance the dataset (way too much drum samples) I used a weighted sampler and downweighted common tags using an inverse frequency weighting:" +
-            "<code> w = 1 / (1 + count / threshold) ^ power</code>.",
+            "<code> w = 1 / (1 + count / threshold) ^ power</code>. " +
+            "Finally, I pre-encoded the audio latents before trianing to improve efficiency.",
 
         entropy5: "On the engineering side, I created 4 core code packages: entropy_training, entropy_models, entropy_metrics, and entropy_data. " +
-            "The model package was initialized from the code in the <a href='https://github.com/Stability-AI/stable-audio-tools' target='_blank' rel='noopener noreferrer'>Stable Audio Tools</a> repo " +
-            "(which contained more than a few bugs, a good lesson in reviewing open source code and adding tests!) " +
-            "and contains code for the DiT, autoencoder, and conditioning modules. For text embeddings, I swapped out the original T5 used with SAO and added in " +
-            "Qwen3 Embedding, CLIP, and CLAP for diverse text features. The data package holds the dataset code as well as " +
-            "code for curating synthetic data and analyzing the dataset's distributions. The training package contains controller/orchestrator code for training and evaluating the model. " +
-            "Finally the metrics package contains metrics for evaluating audio. Some interesting metrics I have been using are the scores from <a href='https://ai.meta.com/research/publications/meta-audiobox-aesthetics-unified-automatic-quality-assessment-for-speech-music-and-sound/' target='_blank' rel='noopener noreferrer'>Meta's Audiobox Aesthetics</a>. " +
+            "The model code was initialized from <a href='https://github.com/Stability-AI/stable-audio-tools' target='_blank' rel='noopener noreferrer'>Stable Audio Tools</a> repo " +
+            "and contains code for the DiT, autoencoder, and conditioning modules. For text embeddings, I swapped out the original T5 used with SAO for " +
+            "Qwen3 Embedding, CLIP, and CLAP for diverse text features. Entropy data holds the dataset classes as well as " +
+            "scripts for synthetic data curation, data processing, and visualizing the dataset. The training package contains trainer classes for SFT, RL (GRPO), and Preference Alignment (DPO) as well as configs and orchestrator code for training. " +
+            "Finally, the metrics package contains metrics used for evaluation and helpers for training monitoring (Weights & Biases). Some interesting metrics I have been using are the scores from <a href='https://ai.meta.com/research/publications/meta-audiobox-aesthetics-unified-automatic-quality-assessment-for-speech-music-and-sound/' target='_blank' rel='noopener noreferrer'>Meta's Audiobox Aesthetics</a>. " +
             "This is a pretrained model that predicts scores for an audio's content enjoyment, content quality, production complexity, and production quality. " +
-            "These scores have actually been decent indicators of training progress and could potentially be used as reward models for post-training (this is an area I am really excited about experimenting with). " +
-            "I also use CLAP score and personal judgement for model evaluation.",
+            "I use these scores as evals during training and also use them as reward signals for RL. ",
 
-        entropy6: "Initial/experimental training runs for the diffusion model were done on my local workstation with 1x5090. When I'm ready to scale " +
-            "I will probably move to a multi-gpu setup on RunPod. To speed up training, I used PyTorch's automatic mixed precision " +
-            "to convert the original float32 SAO weights down to bfloat16. Bfloat16 was preferred over float16 since it is just a simple precision/mantissa truncation on the float32 weights and no re-scaling is required. " +
-            "I also pre-encoded the audio latents since the CNN was a bottleneck during the training step. For training/experiment tracking I used wandb.",
-
-        entropy7: "For the Entropy Audio application, I created a <a href='https://github.com/EntropyAudio/entropy_frontend' target='_blank' rel='noopener noreferrer'>frontend with Angular</a> " +
-            "as well as a <a href='https://github.com/EntropyAudio/entropy_lambda' target='_blank' rel='noopener noreferrer'>small serverless backend</a> + <a href='https://github.com/EntropyAudio/entropy_inference' target='_blank' rel='noopener noreferrer'>model inference function</a>. " +
-            "For those backend pieces I used AWS Lambdas+S3+DDB and RunPod Serverless Endpoints respectively (see the design diagram above). My goal with the frontend was to make something " +
-            "that felt like a hybrid between digital synthesizer and LLM/chatbot UIs, and also integrate a natural data flywheel into the workflow. " +
-            "During generation, the user is presented with 4 options. The audio samples that the user selects to download are marked in a DDB table as 'preferred'. " +
-            "This way a synthetic preference dataset is automatically created as people use the app, helping to solve the data bottleneck mentioned earlier. " +
-            "RunPod/Lambda code can be found on my github. Core packages like entropy_training are private.",
-
-
-
-
-
-
-
+        entropy6: "For the Entropy Audio application, I created a <a href='https://github.com/EntropyAudio/entropy_frontend' target='_blank' rel='noopener noreferrer'>webapp with Angular</a> " +
+            "as well as a <a href='https://github.com/EntropyAudio/entropy_lambda' target='_blank' rel='noopener noreferrer'>serverless backend</a> + <a href='https://github.com/EntropyAudio/entropy_inference' target='_blank' rel='noopener noreferrer'>model inference function</a>. " +
+            "Specifically, I used AWS Lambdas+S3+DDB and RunPod Serverless Endpoints (see the design diagram above). My goal with the UI was to make something " +
+            "that felt like a mix between a digital synthesizer and an LLM/chat UI, and integrate a natural data flywheel into the workflow. " +
+            "During generation, the user is presented with 4 results. The samples that the user downloads are marked in a DDB table as 'preferred'. " +
+            "This way a synthetic preference dataset is naturally created as the app is used, helping to solve the data bottleneck mentioned earlier. " +
+            "For example, this dataset can be used to train the model via DPO. "
 
 
         // dslabs1: "DSLabs was a semester long project that I completed while taking Cornell's CS5414 " +

@@ -116,6 +116,17 @@ function MenuItem({menuItem, id, setId}) {
                                 <p className="description" dangerouslySetInnerHTML={{
                                     __html: linkify(item.descriptions ? (item.descriptions[4] || "") : "")
                                 }} />
+                                {(() => {
+                                        if (item.images && item.images[3]) {
+                                            return <div>
+                                                <img className="img"
+                                                     src={item.images[3]}
+                                                     alt=""/>
+                                                <div className="img-caption">{item.imagecap[3]}</div>
+                                            </div>
+                                        }
+                                    }
+                                )()}
                                 <p className="description" dangerouslySetInnerHTML={{
                                     __html: linkify(item.descriptions ? (item.descriptions[5] || "") : "")
                                 }} />
@@ -124,12 +135,12 @@ function MenuItem({menuItem, id, setId}) {
                                 }} />
 
                                 {(() => {
-                                        if (item.images && item.images[3]) {
+                                        if (item.images && item.images[4]) {
                                             return <div>
                                                 <img className="img"
-                                                     src={item.images[3]}
+                                                     src={item.images[4]}
                                                      alt=""/>
-                                                <div className="img-caption">{item.imagecap[3]}</div>
+                                                <div className="img-caption">{item.imagecap[4]}</div>
                                             </div>
                                         }
                                     }
