@@ -22,7 +22,8 @@ function MenuItem({menuItem, id, setId}) {
             {
                 menuItem.map((item) =>
                 {
-                    return <div className={`portfolio`} key={item.id}>
+                    return <React.Fragment key={item.id}>
+                        <div className={`portfolio`}>
                         <h5>
                             {/*{!item.link ? "" : <a target = "_blank" href={item.link}>*/}
                             {/*    <FontAwesomeIcon icon={item.icon} className='icon'/>*/}
@@ -156,14 +157,17 @@ function MenuItem({menuItem, id, setId}) {
                                         }
                                     }
                                 )()}
-                                <div className="description" dangerouslySetInnerHTML={{
-                                    __html: item.citations && item.citations.length > 0
-                                        ? `<h3>References</h3><ul style="list-style-type: none; padding-left: 0;">${item.citations.map((citation, index) => `<li style="margin-bottom: 5px;">[${index + 1}] ${linkify(citation)}</li>`).join('')}</ul>`
-                                        : ""
-                                }} />
                             </div>
                         </div>
-                    </div>
+                        </div>
+                        {item.citations && item.citations.length > 0 && (
+                            <div className="references-card">
+                                <div className="references-content" dangerouslySetInnerHTML={{
+                                    __html: `<h3>References</h3><ul style="list-style-type: none; padding-left: 0;">${item.citations.map((citation, index) => `<li style="margin-bottom: 5px;">[${index + 1}] ${linkify(citation)}</li>`).join('')}</ul>`
+                                }} />
+                            </div>
+                        )}
+                    </React.Fragment>
                 })
             }
         </div>

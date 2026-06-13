@@ -185,6 +185,7 @@
             width: 400px;
             min-height: 100%;
             background-color: var(--sidebar);
+            border-radius: 10px;
           }
           img.img-wide
           {
@@ -266,6 +267,31 @@
 
       .text-cover {
         background: linear-gradient(to bottom, transparent, #000000);
+      }
+    }
+
+    .references-card
+    {
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      padding: 2.5rem 0 3rem;
+
+      .references-content
+      {
+        width: 80%;
+        max-width: 900px;
+        margin: 0 auto;
+        line-height: 150%;
+
+        h3
+        {
+          margin-bottom: 1.25rem;
+        }
+
+        a
+        {
+          word-break: break-word;
+        }
       }
     }
   }
