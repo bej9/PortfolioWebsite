@@ -8,13 +8,12 @@ function ImageSection() {
                 <div className="about-info">
                     <p className="about-text">
                         <span>
-                        I am currently an engineer at Amazon on the Brand Lift team.
-                        Previously, I worked on Computer Vision at Northrop Grumman's Autonomous Intelligence and Robotics lab
-                        as well as at KLA.</span>
+                        I am currently an engineer at Amazon Ads on the Brand Lift (Measurement, Ad Tech, Data Science org).
+                        Previously, I worked on Computer Vision at KLA as well as at Northrop Grumman's Autonomous Intelligence and Robotics Lab.</span>
                         <br/><br/>
-                        I enjoy keeping up with research related to diffusion & flow models, reinforcement learning, and miscellaneous other science topics.
+                        I enjoy keeping up with research related to diffusion/flow models, reinforcement learning, ML infra, and miscellaneous areas of science that seem interesting.
                         <br/><br/>
-                        In my free time, I'm working on creating Entropy Audio, a project which aims to redefine how we design sound.
+                        In my free time, I'm working on creating Entropy Audio, a project which aims to redefine how composers design sound.
                     </p>
                 </div>
                 <div className="about-img-wrapper">
