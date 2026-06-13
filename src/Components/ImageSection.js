@@ -8,7 +8,7 @@ function ImageSection() {
                 <div className="about-info">
                     <p className="about-text">
                         <span>
-                        I am currently an engineer at Amazon on the Brand Lift Measurement team.
+                        I am currently an engineer at Amazon on the Brand Lift team.
                         Previously, I worked on Computer Vision at Northrop Grumman's Autonomous Intelligence and Robotics lab
                         as well as at KLA.</span>
                         <br/><br/>
