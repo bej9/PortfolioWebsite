@@ -1,5 +1,5 @@
 {
-  "homepage": "http://Bej9038.github.io/PortfolioWebsite",
+  "homepage": "https://bej9.github.io/PortfolioWebsite",
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
@@ -25,7 +25,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "GH_TOKEN=$(gh auth token --user bej9) gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start": "react-scripts --openssl-legacy-provider start",

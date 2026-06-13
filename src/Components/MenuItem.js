@@ -27,9 +27,9 @@ function MenuItem({menuItem, id, setId}) {
                             {/*{!item.link ? "" : <a target = "_blank" href={item.link}>*/}
                             {/*    <FontAwesomeIcon icon={item.icon} className='icon'/>*/}
                             {/*</a>}*/}
-                            <div className="title">
-                                {item.title}
-                            </div>
+                            {/*<div className="title">*/}
+                            {/*    {item.title}*/}
+                            {/*</div>*/}
                         </h5>
 
                         <div className={`project-content`}>

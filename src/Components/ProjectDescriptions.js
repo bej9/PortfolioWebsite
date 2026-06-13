@@ -1,42 +1,43 @@
 const descriptions =
     {
-            entropy1: "Given the impressive modeling capabilities of modern diffusion models in the speech and music domains, " +
-                "it is clear that there will be some form of natural language tool available for composers in the future. " +
-                "Unfortunately, current audio generation models are focused mainly on speech and music generation - not individual, high-quality instrument samples. " +
-                "This highlights that there is a large data bottleneck as well as a lack of focus on this specific task.",
+        entropy1: "Given the impressive capabilities of modern diffusion models in the speech and music domains, " +
+            "a natural-language tool made for composers feels inevitable. " +
+            "Unfortunately, current audio models are largely focused on speech and music generation - not individual, high-quality instrument samples. " +
+            "In my experience, two things stand in the way - a large data bottleneck and a lack of focus on this specific task. " +
+            "Entropy Audio is my attempt at making this tool come to life.",
 
-        entropy2: "The open source model that first piqued my interest was <a href='https://musicgen.com/' target='_blank' rel='noopener noreferrer'>MusicGen from Meta AI</a> [1] in June 2023. This model is an " +
-            "autoregressive transformer that predicts time-steps in a compressed, discretized audio sequence. " +
-            "Although these models were a huge step up in open source at the time, " +
-            "the limitations of autoregressive models became apparent when playing around with the model (long-range consistency issues and slow generative speeds for long sequences). " +
-            "Additionally, the autoencoder (<a href='https://github.com/facebookresearch/encodec' target='_blank' rel='noopener noreferrer'>Encodec</a> [9]) that was used is good, but not quite at the level needed for professional audio.",
+        entropy2: "The open-source model that first captured my interest was <a href='https://musicgen.com/' target='_blank' rel='noopener noreferrer'>MusicGen from Meta AI [1]</a>, released in June 2023. " +
+            "MusicGen is an autoregressive transformer model that predicts time-steps in a compressed, discretized audio sequence. " +
+            "Although it was a huge step up in open-source at the time, the limitations of an autoregressive approach to audio modeling quickly became apparent during my fine-tuning experiments (long-range consistency issues and slow inference for long sequences). " +
+            "Additionally, the neural audio codec it uses (<a href='https://github.com/facebookresearch/encodec' target='_blank' rel='noopener noreferrer'>Encodec [9]</a>) is good enough, but not quite at the level needed for professional audio.",
 
-        entropy3: "In June 2024, StabilityAI released <a href='https://huggingface.co/stabilityai/stable-audio-open-1.0' target='_blank' rel='noopener noreferrer'>Stable Audio Open (SAO)</a> [4]. " +
-            "SAO is a 1B diffusion model that operates on a continuous latent space provided by an audio encoder model called <a href='https://github.com/Harmonai-org/oobleck' target='_blank' rel='noopener noreferrer'>Oobleck</a>. " +
-            "SAO is superior to MusicGen in consistency, quality, simplicity, and efficiency.",
+        entropy3: "In June 2024, Stability AI released <a href='https://huggingface.co/stabilityai/stable-audio-open-1.0' target='_blank' rel='noopener noreferrer'>Stable Audio Open (SAO) [4]</a>. " +
+            "SAO is a 1.2B diffusion transformer that operates on a continuous latent space provided by a variational autoencoder called <a href='https://github.com/Harmonai-org/oobleck' target='_blank' rel='noopener noreferrer'>Oobleck</a>. " +
+            "As a result, SAO is superior to MusicGen in both audio quality and efficiency. " +
+            "The model currently used for Entropy Audio is an adaptation of the SAO DiT.",
 
         entropy4: "Architectures are somewhat of a solved problem at this point, but the data bottleneck still remains. " +
             "To fix this, I have been working on a dataset currently sitting at around 2TB. " +
             "The largest portion of this data came from software I made to automate the data gathering and labeling process. " +
             "I used both proprietary LLM APIs as well as local LLMs to generate captions given the filenames and attribute tags of an audio sample. " +
             "Each wav file in the dataset is paired with a json file containing conditioning fields prepared in a predefined schema. " +
-            "The dataset design was inspired by the dataset classes in <a href='https://github.com/facebookresearch/audiocraft' target='_blank' rel='noopener noreferrer'>Meta's AudioCraft codebase</a> [2]. " +
+            "The dataset design was inspired by the dataset classes in <a href='https://github.com/facebookresearch/audiocraft' target='_blank' rel='noopener noreferrer'>Meta's AudioCraft codebase [2]</a>. " +
             "The rest of the data is from open source or manually labeled. <br><br>" +
-            "I used <a href='https://huggingface.co/docs/transformers/model_doc/clap' target='_blank' rel='noopener noreferrer'>CLAP score</a> [3] to filter out low quality synthetic examples. " +
+            "I used <a href='https://huggingface.co/docs/transformers/model_doc/clap' target='_blank' rel='noopener noreferrer'>CLAP score [3]</a> to filter out low quality synthetic examples. " +
             "To balance the dataset (way too many drum samples!) I used a weighted sampler and downweighted common tags using an inverse frequency weighting:" +
             "<code> w = 1 / (1 + count / threshold) ^ power</code>. " +
             "Finally, I pre-encoded the audio latents before training to improve efficiency.",
 
         entropy5: "I created 4 core code packages for training, models, metrics, and data. " +
-            "The model code was initialized from the <a href='https://github.com/Stability-AI/stable-audio-tools' target='_blank' rel='noopener noreferrer'>Stable Audio Tools</a> [5] repo " +
+            "The model code was initialized from the <a href='https://github.com/Stability-AI/stable-audio-tools' target='_blank' rel='noopener noreferrer'>Stable Audio Tools [5]</a> repo " +
             "and contains code for the DiT, autoencoder, and conditioning modules. For text embeddings, I swapped out the original T5 used with SAO for " +
             "Qwen3 Embedding, CLIP, and CLAP for diverse text features. The data package holds the dataset classes as well as " +
             "scripts for synthetic data curation, data processing, and visualizing the dataset. The training code contains trainer classes for SFT, RL (GRPO) [10], and Preference Alignment (DPO) [11] as well as configs and orchestrator code for training. " +
-            "Finally, the metrics package contains metrics used for evaluation and helpers for training monitoring (Weights & Biases). Some interesting metrics I have been using are the scores from <a href='https://ai.meta.com/research/publications/meta-audiobox-aesthetics-unified-automatic-quality-assessment-for-speech-music-and-sound/' target='_blank' rel='noopener noreferrer'>Meta's Audiobox Aesthetics</a> [6]. " +
+            "Finally, the metrics package contains metrics used for evaluation and helpers for training monitoring (Weights & Biases). Some interesting metrics I have been using are the scores from <a href='https://ai.meta.com/research/publications/meta-audiobox-aesthetics-unified-automatic-quality-assessment-for-speech-music-and-sound/' target='_blank' rel='noopener noreferrer'>Meta's Audiobox Aesthetics [6]</a>. " +
             "This is a pretrained model that predicts scores for an audio's content enjoyment, content quality, production complexity, and production quality. " +
             "I use these scores as evals during training and also use them as reward signals for RL. ",
 
-        entropy6: "For the Entropy Audio application, I created a <a href='https://github.com/EntropyAudio/entropy_frontend' target='_blank' rel='noopener noreferrer'>webapp with Angular</a> [7] " +
+        entropy6: "For the Entropy Audio application, I created a <a href='https://github.com/EntropyAudio/entropy_frontend' target='_blank' rel='noopener noreferrer'>webapp with Angular [7]</a> " +
             "as well as a <a href='https://github.com/EntropyAudio/entropy_lambda' target='_blank' rel='noopener noreferrer'>serverless backend</a> + <a href='https://github.com/EntropyAudio/entropy_inference' target='_blank' rel='noopener noreferrer'>model inference function</a>. " +
             "Specifically, I used AWS Lambdas+S3+DDB and RunPod Serverless Endpoints (see the design diagram above). My goal with the UI was to make something " +
             "that felt like a mix between a digital synthesizer and an LLM/chat UI, and integrate a natural data flywheel into the workflow. " +
