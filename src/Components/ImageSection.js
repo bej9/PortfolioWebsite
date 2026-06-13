@@ -12,7 +12,7 @@ function ImageSection() {
                         Previously, I worked on Computer Vision at Northrop Grumman's Autonomous Intelligence and Robotics lab
                         as well as at KLA.</span>
                         <br/><br/>
-                        I enjoy keeping up with research related to diffusion & flow models, reinforcement learning, and miscellaneous other topics in ML (and sometimes Physics).
+                        I enjoy keeping up with research related to diffusion & flow models, reinforcement learning, and miscellaneous other topics in ML (and sometimes other STEM fields).
                         <br/><br/>
                         In my free time, I'm working on creating Entropy Audio, a project which aims to redefine how we design sound.
                     </p>

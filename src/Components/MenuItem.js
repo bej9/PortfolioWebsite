@@ -47,6 +47,17 @@ function MenuItem({menuItem, id, setId}) {
                             {/*    }*/}
                             {/*}}>Expand</button>*/}
                             <div className="flex-container">
+                                {(() => {
+                                        if (item.topImage) {
+                                            return <div>
+                                                <img className="img img-wide"
+                                                     src={item.topImage}
+                                                     alt="Entropy Audio user interface"/>
+                                                <div className="img-caption">{item.topImageCap}</div>
+                                            </div>
+                                        }
+                                    }
+                                )()}
                                 <p className="description" dangerouslySetInnerHTML={{
                                     __html: linkify(item.descriptions ? (item.descriptions[0] || "") : "")
                                 }} />
