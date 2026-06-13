@@ -24,7 +24,7 @@ function NavBar() {
                         {/*</lin>*/}
                         <lin className="nav-item">
                             <NavLink to="/Projects" exact activeClassName="active">
-                                Blog
+                                Personal Project
                             </NavLink>
                         </lin>
                         <lin className="nav-item">
@@ -46,7 +46,7 @@ function NavBar() {
                 {/*</div>*/}
                 <div className="footer footer">
                     <p>
-                        @2025 Ben Jordan
+                        @2026 Ben Jordan
                     </p>
                 </div>
 

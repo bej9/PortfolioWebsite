@@ -2,7 +2,7 @@ import React from 'react';
 import Title from "../Components/Title";
 import Skills from "../Components/Skills";
 import ImageSection from "../Components/ImageSection";
-import resume from "../Downloads/Benjamin_Jordan_Resume_2025.pdf";
+import resume from "../Downloads/Benjamin_Jordan_Resume_2026.pdf";
 
 function AboutPage() {
     return (
