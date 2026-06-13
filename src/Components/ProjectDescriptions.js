@@ -42,7 +42,7 @@ const descriptions =
         entropy6: "For the Entropy Audio website, I wrote the frontend in Angular and the backend in Python. " +
             "I used AWS Lambda, S3, and DynamoDB, alongside RunPod Serverless Endpoints for the backend infrastructure. " +
             "My goal with the UI's design was to make something that felt like a hybrid between a digital synthesizer and an LLM interface, with a transparent (to the user) data flywheel built into the workflow. " +
-            "When a user downloads a generation, it gets marked as 'preferred' in a DynamoDB table. The other generations in theS batch are used as the negative examples during preference training (DPO). " +
+            "When a user downloads a generation, it gets marked as 'preferred' in a DynamoDB table. The other generations in the batch are used as the negative examples during preference training (DPO). " +
             "This way, preference data and synthetic audio are naturally collected during regular use, helping to solve the data bottleneck mentioned earlier. "
 
     };
