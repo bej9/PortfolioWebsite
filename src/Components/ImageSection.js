@@ -8,7 +8,7 @@ function ImageSection() {
                 <div className="about-info">
                     <p className="about-text">
                         <span>
-                        I am currently an engineer at Amazon Ads on the Brand Lift (Measurement, Ad Tech, Data Science org).
+                        I am currently an engineer at Amazon Ads on the Brand Lift team (Measurement, Ad Tech, Data Science org).
                         Previously, I worked on Computer Vision at KLA as well as at Northrop Grumman's Autonomous Intelligence and Robotics Lab.</span>
                         <br/><br/>
                         I enjoy keeping up with research related to diffusion/flow models, reinforcement learning, ML infra, and miscellaneous areas of science that seem interesting.
