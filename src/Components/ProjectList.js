@@ -28,7 +28,7 @@ import audiocraft1 from "../Images/audiocraft1.png"
 import audiocraft2 from "../Images/frontend.PNG"
 import dit from "../Images/dit.png"
 import pc from "../Images/IMG_8809.JPEG"
-import ea from "../Images/EntropyAudio (2).png"
+// import ea from "../Images/EntropyAudio (2).png"
 import ddpo from "../Images/Screenshot from 2026-02-01 11-47-10.png"
 import ui from "../Images/img.png"
 
@@ -49,7 +49,7 @@ const portfolios = [
         title: 'Generative, Transformer-Based Models For Sound Design',
         topImage: ui,
         topImageCap: '1. The UI',
-        images: [audiocraft1, dit, ddpo, ea, pc],
+        images: [audiocraft1, dit, ddpo, null, pc],
         imagecap: ["2. MusicGen + Encodec Architecture", "3. Scalable Diffusion Models with Transformers (Peebles et al., 2023)", "4. Training Diffusion Models with Reinforcement Learning (Black et al., 2024)", "5. Generation Flow System Design", "6. My Local Setup"],
         citations: [
             "MusicGen - https://musicgen.com/",
