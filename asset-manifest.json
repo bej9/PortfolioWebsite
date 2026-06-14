@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/PortfolioWebsite/static/css/main.f1dff49f.chunk.css",
-    "main.js": "/PortfolioWebsite/static/js/main.7af01c51.chunk.js",
-    "main.js.map": "/PortfolioWebsite/static/js/main.7af01c51.chunk.js.map",
+    "main.js": "/PortfolioWebsite/static/js/main.c13a3e8a.chunk.js",
+    "main.js.map": "/PortfolioWebsite/static/js/main.c13a3e8a.chunk.js.map",
     "runtime-main.js": "/PortfolioWebsite/static/js/runtime-main.906d1dcc.js",
     "runtime-main.js.map": "/PortfolioWebsite/static/js/runtime-main.906d1dcc.js.map",
     "static/js/2.bd8e1c77.chunk.js": "/PortfolioWebsite/static/js/2.bd8e1c77.chunk.js",
@@ -12,7 +12,6 @@
     "static/js/2.bd8e1c77.chunk.js.LICENSE.txt": "/PortfolioWebsite/static/js/2.bd8e1c77.chunk.js.LICENSE.txt",
     "static/media/Benjamin_Jordan_Resume_2026.8e59cc4c.pdf": "/PortfolioWebsite/static/media/Benjamin_Jordan_Resume_2026.8e59cc4c.pdf",
     "static/media/EQ2.4f946a9f.PNG": "/PortfolioWebsite/static/media/EQ2.4f946a9f.PNG",
-    "static/media/EntropyAudio (2).325a2056.png": "/PortfolioWebsite/static/media/EntropyAudio (2).325a2056.png",
     "static/media/FV3.8dd5368a.PNG": "/PortfolioWebsite/static/media/FV3.8dd5368a.PNG",
     "static/media/FV5.f9dd787d.png": "/PortfolioWebsite/static/media/FV5.f9dd787d.png",
     "static/media/GNN1.93a9ac99.PNG": "/PortfolioWebsite/static/media/GNN1.93a9ac99.PNG",
@@ -51,6 +50,6 @@
     "static/js/runtime-main.906d1dcc.js",
     "static/js/2.bd8e1c77.chunk.js",
     "static/css/main.f1dff49f.chunk.css",
-    "static/js/main.7af01c51.chunk.js"
+    "static/js/main.c13a3e8a.chunk.js"
   ]
 }
